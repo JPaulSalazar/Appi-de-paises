@@ -10,11 +10,11 @@ function addCountry(data) {
     countryList.appendChild(listItem);
     /* nuevo contenido añadido al DOM */
     const content = `
-      <div id="${data[i].name}">
+      <div class="divCountry">
         <h2>${data[i].name}</h2>
+        <a id="${data[i].name}">MAS INFORMACION</a>
       </div>
       <div class="modal" id="${data[i].name}modal">
-        <h3>Mas información:</h3>
         <ul id="lista-paises">
         <li>
           <p>Bandera:</p>
@@ -44,7 +44,7 @@ function addCountry(data) {
         <p id="${data[i].name}moneda"></p>
         </li>
         </ul>
-        <button id="${data[i].name}boton">OK!</button>
+        <button id="${data[i].name}boton" class="boton">OK</button>
       </div>
     `;
     let languajes = '';
@@ -87,7 +87,7 @@ fetch('https://restcountries.eu/rest/v2/all')
     form.addEventListener('input', (event) => {
       event.preventDefault();
       const name = form.elements[0].value;
-      const countryItem = data.filter((element) => element.name.includes(`${name}`));
+      const countryItem = data.filter((element) => element.name.toLowerCase().includes(`${name.toLowerCase()}`));
       if (!countryItem) {
         addCountry(data);
       } else {
