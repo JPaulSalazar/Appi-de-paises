@@ -1,14 +1,9 @@
-/* funcion para añadir peliculas */
 function addCountry(data) {
   const countryList = document.getElementById('lista-paises');
-  /* si se recarga la pagina que aparesca en blanco la pagina */
   countryList.innerHTML = '';
-  /* recorrer movie para añadir los elementos al DOM */
   for (let i = 0; i < data.length; i += 1) {
     const listItem = document.createElement('li');
-    /* fetch para la informacion extra */
     countryList.appendChild(listItem);
-    /* nuevo contenido añadido al DOM */
     const content = `
       <div class="divCountry">
         <h2>${data[i].name}</h2>
